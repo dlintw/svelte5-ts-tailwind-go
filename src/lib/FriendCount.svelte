@@ -1,8 +1,18 @@
-<script>
-    import { liveQuery } from "dexie";
-    import { db } from "./db";
+<script lang="ts">
+  import { liveQuery } from "dexie";
+  import { db } from "./db";
 
-    let numFriends = liveQuery(() => db.friends.count());
-  </script>
+  // Use $state for reactive state with TypeScript types
+  let numFriends = $state<number | null>(null);
 
-  {$numFriends == null ? "loading..." : $numFriends}
+  // Use liveQuery to reactively update numFriends
+  liveQuery(() => db.friends.count()).subscribe((count: number) => {
+    numFriends = count;
+  });
+</script>
+
+{#if numFriends == null}
+  loading...
+{:else}
+  {numFriends}
+{/if}
