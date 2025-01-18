@@ -15,7 +15,7 @@ class SvelteLiveQueryDB extends Dexie {
     super("sveltelivequery");
 
     // Define schema
-    this.version(4).stores({
+    this.version(1).stores({
       friends: "++id, name, age", // `++id` = auto-incrementing primary key
     });
 

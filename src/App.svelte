@@ -1,7 +1,6 @@
 <script lang="ts">
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
   import { store } from './lib/store.svelte'
   import FriendAdder from "./lib/FriendAdder.svelte";
   import FriendList from "./lib/FriendList.svelte";
@@ -22,10 +21,6 @@
   <input bind:value={store.name} type="text" aria-label="name for welcome" class="bg-gray-200"
       style="width: {store.name.length * 8 + 10}px; transition: width 0.2s;"
   >
-
-  <div class="card">
-    <Counter />
-  </div>
 
   <p class="text-gray-300 bg-black">
     Click on the Vite and Svelte logos to learn more
