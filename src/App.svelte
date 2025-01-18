@@ -3,6 +3,8 @@
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
   import { store } from './lib/store.svelte'
+  import FriendAdder from "./lib/FriendAdder.svelte";
+  import FriendList from "./lib/FriendList.svelte";
 </script>
 
 <main class="min-h-screen">
@@ -28,6 +30,9 @@
   <p class="text-gray-300 bg-black">
     Click on the Vite and Svelte logos to learn more
   </p>
+  <FriendAdder />
+  <br/>
+  <FriendList />
 </main>
 
 <style>

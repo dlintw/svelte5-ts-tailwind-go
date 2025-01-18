@@ -46,6 +46,7 @@ make licensecheck
 
 - [Svelte • Web development for the rest of us](https://svelte.dev/)
 - [Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.](https://tailwindcss.com/)
+- [Dexie.js - Minimalistic IndexedDB Wrapper](https://dexie.org/)
 - [The Go Programming Language](https://go.dev/)
 - [TypeScript: JavaScript With Syntax For Types.](https://www.typescriptlang.org/)
 - [Vite | Next Generation Frontend Tooling](https://vite.dev/)
