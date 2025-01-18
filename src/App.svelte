@@ -2,46 +2,33 @@
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
+  import { store } from './lib/store.svelte'
 </script>
 
-<main>
-  <div>
+<main class="min-h-screen">
+  <div class="flex items-center gap-4">
     <a href="https://vite.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
+      <img src={viteLogo} class="h-[6em] p-[1.5em] will-change-filter transition-filter duration-300 hover:drop-shadow-[0_0_2em_#646cffaa]" alt="Vite Logo" />
     </a>
+    <h1 class="text-3xl sm:text-4xl md:text-5xl">Vite + Svelte + Tailwind + Go</h1>
     <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
+      <img src={svelteLogo} class="h-24 p-6 will-change-filter transition-filter duration-300 hover:drop-shadow-[0_0_2em_#ff3e00aa]" alt="Svelte Logo" />
     </a>
   </div>
-  <h1>Vite + Svelte</h1>
+
+  Hello
+  <input bind:value={store.name} type="text" aria-label="name for welcome" class="bg-gray-200"
+      style="width: {store.name.length * 8 + 10}px; transition: width 0.2s;"
+  >
 
   <div class="card">
     <Counter />
   </div>
 
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
+  <p class="text-gray-300 bg-black">
     Click on the Vite and Svelte logos to learn more
   </p>
 </main>
 
 <style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
 </style>

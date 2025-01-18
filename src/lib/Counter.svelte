@@ -1,10 +1,11 @@
 <script lang="ts">
-  let count: number = $state(0)
+  import { store } from './store.svelte'
+
   const increment = () => {
-    count += 1
+    store.count += 1
   }
 </script>
 
 <button onclick={increment}>
-  count is {count}
+  {store.name}, count is {store.count}
 </button>

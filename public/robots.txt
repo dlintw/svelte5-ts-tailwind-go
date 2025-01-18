@@ -1,0 +1,3 @@
+# Allow all web crawlers full access
+User-agent: *
+Disallow: /api/
