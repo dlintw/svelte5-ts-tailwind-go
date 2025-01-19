@@ -13,7 +13,6 @@ IGNORE ?= "example.com/"${NAME}
 
 all: $(GO_OUTPUT)  ## build backend
 	ls -lh $(GO_OUTPUT)
-
 $(GO_OUTPUT): front.stamp $(sort $(GO_SOURCE))
 	@echo "Building Go application..."
 	go build -ldflags="-s -w" -o $(GO_OUTPUT)

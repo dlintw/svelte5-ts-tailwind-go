@@ -1,5 +1,7 @@
 # Svelte5 + TS + tailwindcss + Go
 
+<img src="screenshot.png" alt="screenshot" width="500" />
+
 This project aims to create a template for a full-stack web application. In
 addition to the original Svelte-TS template, this project offers the following features:
 

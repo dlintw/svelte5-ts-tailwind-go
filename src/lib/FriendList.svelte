@@ -96,9 +96,7 @@
   </label>
   </fieldset>
 
-  <h3>Result</h3>
-
-  <p>Total number of friends in database: <FriendCount /></p>
+  <p>Result: Total number of friends in database: <FriendCount /></p>
   {#if $friends}
     <ul>
       {#each $friends as friend (friend.id)}
