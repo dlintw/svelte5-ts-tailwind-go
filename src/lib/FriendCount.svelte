@@ -1,6 +1,6 @@
 <script lang="ts">
   import { liveQuery } from "dexie";
-  import { db } from "./db";
+  import { db } from "./db.svelte";
 
   // Use $state for reactive state with TypeScript types
   let numFriends = $state<number | null>(null);

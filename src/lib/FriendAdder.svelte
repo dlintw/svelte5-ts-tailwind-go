@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { db } from "./db";
+  import { db } from "./db.svelte";
   import { getRandomNames } from "./random";
 
   // Reactive state using $state

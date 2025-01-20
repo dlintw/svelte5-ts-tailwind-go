@@ -16,6 +16,10 @@ addition to the original Svelte-TS template, this project offers the following f
 - Consistent code formatting with `make fmt`: Ensures uniform code style before
   committing changes.
 
+## setup related tools of this project
+
+After clone this source, require some dependencies by `make setup`.
+
 ## Commit log mapping to build up steps
 
 Just use `git log`, you can learn how to build up this template.
