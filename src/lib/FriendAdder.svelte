@@ -51,21 +51,24 @@
 </script>
 
 <div>
-  <fieldset>
-    <legend>Add new friend</legend>
-    <label>
-      Name:
+  <fieldset class="flex flex-wrap items-center space-x-4">
+    <legend class="w-full">Add new friend</legend>
+    <label class="flex items-center space-x-2">
+      <span>Name:</span>
       <input
         type="text"
-        bind:value={friendName} />
-    </label><br />
-    <label>
-      Age:
+        bind:value={friendName} 
+        class="border p-2"
+        />
+    </label>
+    <label class="flex items-center space-x-2">
+      <span>Age:</span>
       <input
         type="number"
-        bind:value={friendAge} />
-    </label>
-    <br />
+        bind:value={friendAge} 
+        class="border p-2 w-20"
+        />
+    </label>    
     <button onclick={addFriend}>Add Friend</button>
   </fieldset>
   <div style="height:20px;">{status || ""}</div>

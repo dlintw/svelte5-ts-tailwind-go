@@ -4,25 +4,12 @@
     import FriendCount from "./FriendCount.svelte";
     import {settings, saveSettings} from "./db.svelte";
 
-    let pageSize = 10;
+    let pageSize = 20;
 
-    // (This part is optional):
-    // Let's just reset offset when params change...
-    // (so user don't stay on page 10 with empty results
-    //  while narrowing query)
     $effect(() => {
-      // List every query parameter:
-      // namePattern;
-      // minAge;
-      // maxAge;
-      // orderBy;
-      // Reset offset when they change:
       settings.offset = 0;
     });
-
-    //
-    // Query
-    //
+    
     let friends = $derived.by(() => {
       const lowerNamePattern = settings.namePattern.toLowerCase();
       const minAge2 = settings.minAge;
@@ -49,38 +36,40 @@
     });
   </script>
   <div>
-    <form onsubmit={saveSettings}>
-      <label>
+    <form onsubmit={saveSettings} class="border flex flex-wrap items-center space-x-4 mx-2 my-2">
+      <label class="flex items-center mx-2">
         Beginning of name:
-        <input type="text" bind:value={settings.namePattern} />
+        <input type="text" bind:value={settings.namePattern} class="w-full"/>
       </label>
-      <label>
+      <label class="flex items-center">
         Min Age:
-        <input type="number" bind:value={settings.minAge} />
+        <input type="number" bind:value={settings.minAge} class="w-16"/>
       </label>
-      <label>
+      <label class="flex items-center">
         Max Age:
-        <input type="number" bind:value={settings.maxAge} />
+        <input type="number" bind:value={settings.maxAge} class="w-16"/>
       </label>
-      <label>
+      <label class="flex items-center">
         Order By:
         <select bind:value={settings.orderBy}>
           <option value="name">Name</option>
           <option value="age">Age</option>
         </select>
       </label>
-      <label>
+      <label class="flex items-center">
         Offset:
-        <input type="number" bind:value={settings.offset} />
+        <input type="number" bind:value={settings.offset} class="w-20"/>
       </label>
-      <button type="submit">Save Settings</button>
+      <button type="submit">Save Query Settings</button>
     </form>
 
   <p>Result: Total number of friends in database: <FriendCount /></p>
   {#if $friends}
-    <ul>
+    <ul class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8">        
       {#each $friends as friend (friend.id)}
-        <li>{friend.name}, {friend.age}</li>
+        <li class="flex flex-col items-start">
+          {friend.name}, {friend.age}
+        </li>
       {/each}
     </ul>
   {/if}
@@ -89,11 +78,11 @@
   <!-- Pagination -->
   <p>Page {Math.round((settings.offset / pageSize) + 1)}</p>
   <button onclick={()=>settings.offset = 0}
-    disabled={settings.offset === 0}>
+    class={settings.offset === 0 ? 'hidden' : ''}>
     &lt;&lt; First page
   </button>
   <button onclick={()=>settings.offset -= pageSize}
-    disabled={settings.offset === 0}>
+    class={settings.offset === 0 ? 'hidden' : ''}>
     &lt; Previous page
   </button>
   {#if ($friends?.length === pageSize)}
