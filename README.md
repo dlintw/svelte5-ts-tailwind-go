@@ -1,5 +1,7 @@
-# Svelte5 + TS + tailwindcss + Go
+# Svelte5 + TS + Tailwind CSS 4 + Go
+
 [demo site](https://dlintw.github.io/svelte5-ts-tailwind-go/)
+
 <img src="screenshot.png" alt="screenshot" width="500" />
 
 This project aims to create a template for a full-stack web application. In

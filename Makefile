@@ -3,7 +3,8 @@ NAME = svelte5-ts-tailwind-go
 GO_OUTPUT = $(realpath .)/${NAME}
 GO_SOURCE = $(sort $(wildcard *.go) main.go)
 FRONTEND_BUILD_DIR = dist
-FRONTEND_SOURCE := index.html $(wildcard public/*) $(shell find src -type f)
+FRONTEND_SOURCE := index.html $(wildcard public/*) $(shell find src -type f) \
+				   vite.config.ts
 
 ALLOWED_LICENSES_COMMA ?= "MIT,BSD-3-Clause,Apache-2.0,MPL-2.0,ISC"
 # Note: BlueOak-1.0.0 is not a valid license for use
@@ -29,12 +30,17 @@ fmt:  ## format code
 	bun run format && bun run lint && bun run check
 	gofmt -w *.go
 
+fixbase:  ## fix 'base' for gh-pages
+	rm -f vite.config.js
+	sed -i 's|base: "/"|base: "/svelte5-ts-tailwind-go"|' vite.config.ts
+
 lint:  ## lint for frontend and backend code
 	bun run lint && bun run check
 
 clean:  ## clean
 	@echo "Cleaning up..."
 	rm -rf $(FRONTEND_BUILD_DIR) $(GO_OUTPUT) $(GENERATED_FILES)
+	rm -f front.stamp
 	@echo "Clean up completed."
 
 clobber: clean  ## clean all ignored files too
