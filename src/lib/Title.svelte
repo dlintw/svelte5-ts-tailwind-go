@@ -19,6 +19,6 @@
     <a href="https://svelte.dev" target="blank">Svelte 5</a> +
     <a href="https://www.typescriptlang.org" target="blank">TypeScript</a> +
     <a href="https://tailwindcss.com" target="blank">TailwindCSS 4</a> +
-    <a href="https://go.dev" target="blank">Go</a>
+    <a href="https://go.dev" target="blank">Go Language</a>
   </h1>
 </div>
